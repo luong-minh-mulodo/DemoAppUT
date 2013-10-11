@@ -1,5 +1,6 @@
 package jp.mulodo.demoapput;
 
+import jp.mulodo.demoapput.database.DataBase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +16,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//
+		DataBase dataBase = new DataBase();
+		dataBase.initData();
+		
 		setContentView(R.layout.activity_main);
 		mBt_add = (Button) findViewById(R.id.mainactivity_btn_add);
 		mBt_list = (Button) findViewById(R.id.mainactivity_btn_list);
@@ -22,6 +26,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		mBt_add.setOnClickListener(this);
 		mBt_list.setOnClickListener(this);
 		// Test Commit
+		
+		Intent login = new Intent(this, LoginActivity.class); 
+		startActivity(login);
 	}
 
 	@Override

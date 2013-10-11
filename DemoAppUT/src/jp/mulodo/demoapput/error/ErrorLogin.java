@@ -1,11 +1,18 @@
 package jp.mulodo.demoapput.error;
 
 public class ErrorLogin extends ErrorBase{
+
+	private static final long serialVersionUID = 1L;
 	private static MyError myError = null; // var sington MyError.
+	
+	public ErrorLogin()
+	{
+		getInstance();
+	}
 	
 	@Override
 	public MyError ErrorException() {
-		return getInstance();
+		return myError;
 	}
 	
 	/***

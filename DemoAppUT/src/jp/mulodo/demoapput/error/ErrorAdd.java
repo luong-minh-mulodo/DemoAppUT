@@ -1,6 +1,7 @@
 package jp.mulodo.demoapput.error;
 
 public class ErrorAdd extends ErrorBase{
+
 	private static MyError myError = null; // var sington MyError.
 	
 	@Override
