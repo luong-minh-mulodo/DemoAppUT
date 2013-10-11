@@ -121,7 +121,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/login_edt_detail"
+            android:id="@+id/add_edt_detail"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1.8"
