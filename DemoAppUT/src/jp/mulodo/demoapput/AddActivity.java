@@ -1,5 +1,6 @@
 package jp.mulodo.demoapput;
 
+import jp.mulodo.demoapput.controller.UserController;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -28,7 +29,22 @@ public class AddActivity extends FragmentActivity implements OnClickListener{
 		// TODO Auto-generated method stub
 		if(v.getId() == R.id.add_btn_add)
 		{
+			getData();
+			
+		}
+	}
+	public void getData()
+	{
+		String name = mEdt_name.getText().toString();
+		String address = mEdt_address.getText().toString();
+		String email = mEdt_email.getText().toString();
+		String detail = mEdt_detail.getText().toString();
+		try {
+			UserController.add(name, address, email, detail);
 			finish();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
