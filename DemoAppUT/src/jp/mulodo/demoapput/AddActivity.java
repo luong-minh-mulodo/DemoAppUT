@@ -1,6 +1,7 @@
 package jp.mulodo.demoapput;
 
 import jp.mulodo.demoapput.controller.UserController;
+import jp.mulodo.demoapput.object.CustomerInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -40,7 +41,12 @@ public class AddActivity extends FragmentActivity implements OnClickListener{
 		String email = mEdt_email.getText().toString();
 		String detail = mEdt_detail.getText().toString();
 		try {
-			UserController.add(name, address, email, detail);
+			CustomerInfo customerInfo = new CustomerInfo();
+			customerInfo.setAddress(address);
+			customerInfo.setName(name);
+			customerInfo.setEmail(email);
+			customerInfo.setDetail(detail);
+			UserController.add(customerInfo);
 			finish();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

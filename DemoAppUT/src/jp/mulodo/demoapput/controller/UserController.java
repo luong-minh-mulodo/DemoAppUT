@@ -3,10 +3,13 @@ package jp.mulodo.demoapput.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.R.bool;
 import android.util.Log;
 
 import jp.mulodo.demoapput.database.DataBase;
+import jp.mulodo.demoapput.error.ErrorAdd;
 import jp.mulodo.demoapput.error.ErrorBase;
+import jp.mulodo.demoapput.error.ErrorDelete;
 import jp.mulodo.demoapput.error.ErrorLogin;
 import jp.mulodo.demoapput.object.CustomerInfo;
 import jp.mulodo.demoapput.object.User;
@@ -31,32 +34,32 @@ public class UserController {
 		ErrorBase error = new ErrorLogin();
 		throw error;
 	}
-	public static void add (String Name,String Address,String Email,String Detail) throws Exception
+	public static boolean add (CustomerInfo customer) throws ErrorBase
 	{
-		CustomerInfo customer = new CustomerInfo();
-		customer.setAddress(Address);
-		customer.setDetail(Detail);
-		customer.setEmail(Email);
-		customer.setName(Name);
-		DataBase.lCutomers.add(customer);
+		if (customer == null)
+		{
+			DataBase.lCutomers.add(customer);
+			return true;
+		}
+		ErrorBase error = new ErrorAdd();
+		throw error;
 	}
-	public static void delete (int ID) throws Exception
+	
+	
+	public static boolean delete (int ID) throws ErrorDelete
 	{
 		DataBase.lCutomers.remove(ID);
+		return true;
 	}
-	public static void getAllCustomer()
+	
+	public static ArrayList<CustomerInfo> getAllCustomer() throws NullPointerException
 	{
-		for(CustomerInfo custom : DataBase.lCutomers)
-		{
-			Log.e("Name", custom.getName());
-		}
+		return DataBase.lCutomers;
 	}
-	public static void getAllUser()
+	
+	public static ArrayList<User> getAllUser() throws NullPointerException
 	{
-		for(User usr : DataBase.lUsers)
-		{
-			Log.e("Name", usr.getUserName());
-		}
+		return DataBase.lUsers;
 	}
 	
 	
