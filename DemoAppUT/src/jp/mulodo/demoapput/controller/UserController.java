@@ -42,7 +42,7 @@ public class UserController {
 	}
 	
 	
-	public static boolean delete (int ID) throws ErrorBase
+	public static boolean delete (int ID) throws ErrorBase,IndexOutOfBoundsException
 	{
 		if (ID > 0 || ID < DataBase.lCutomers.size() )
 		{

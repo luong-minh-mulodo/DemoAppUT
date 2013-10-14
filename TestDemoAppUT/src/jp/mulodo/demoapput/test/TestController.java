@@ -148,6 +148,8 @@ public class TestController extends TestCase {
 			assertTrue(UserController.delete(9999));
 		} catch (ErrorBase e) {
 			fail("Error: " + e.getMessage());
+		}catch (Exception e) {
+			fail("Error: " + e.getMessage());
 		}		
 	}
 	
@@ -157,7 +159,9 @@ public class TestController extends TestCase {
 			assertTrue(UserController.delete(0));
 		} catch (ErrorBase e) {
 			fail("Error: " + e.getMessage());
-		}		
+		}	catch (Exception e) {
+			fail("Error: " + e.getMessage());
+		}	
 	}
 	
 	/**
