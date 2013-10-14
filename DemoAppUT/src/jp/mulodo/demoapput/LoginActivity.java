@@ -1,6 +1,7 @@
 package jp.mulodo.demoapput;
 
 import jp.mulodo.demoapput.controller.UserController;
+import jp.mulodo.demoapput.database.DataBase;
 import jp.mulodo.demoapput.error.ErrorBase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -23,7 +24,8 @@ public class LoginActivity extends FragmentActivity implements OnClickListener{
 		super.onCreate(arg0);
 		initView();
 		initEvent();
-		
+		DataBase dataBase = new DataBase();
+		dataBase.initData();
 	}
 	
 	/**

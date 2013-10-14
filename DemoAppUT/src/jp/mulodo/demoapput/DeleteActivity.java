@@ -1,6 +1,7 @@
 package jp.mulodo.demoapput;
 
 import jp.mulodo.demoapput.controller.UserController;
+import jp.mulodo.demoapput.database.DataBase;
 import jp.mulodo.demoapput.error.ErrorBase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +17,8 @@ public class DeleteActivity extends FragmentActivity implements OnClickListener 
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub;
 		super.onCreate(arg0);
+		DataBase dataBase = new DataBase();
+		dataBase.initData();
 		setContentView(R.layout.activity_delete);
 		mBtn_yes = (Button) findViewById(R.id.delete_btn_yes);
 		mBtn_no = (Button) findViewById(R.id.delete_btn_no);
