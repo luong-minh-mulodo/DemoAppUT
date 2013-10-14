@@ -121,11 +121,12 @@ public class TestController extends TestCase {
 	public void testAddSuccess()
 	{
 		try {
-			CustomerInfo customerInfo = new CustomerInfo();
-			customerInfo.setAddress("address");
-			customerInfo.setName("name");
-			customerInfo.setEmail("email");
-			customerInfo.setDetail("detail");
+//			CustomerInfo customerInfo = new CustomerInfo();
+			CustomerInfo customerInfo = Mockito.mock(CustomerInfo.class);
+//			customerInfo.setAddress("address");
+//			customerInfo.setName("name");
+//			customerInfo.setEmail("email");
+//			customerInfo.setDetail("detail");
 			assertTrue(UserController.add(customerInfo));
 		} catch (ErrorBase e) {
 			fail("Error: " + e.getMessage());
