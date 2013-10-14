@@ -42,10 +42,15 @@ public class UserController {
 	}
 	
 	
-	public static boolean delete (int ID) throws ErrorDelete
+	public static boolean delete (int ID) throws ErrorBase
 	{
-		DataBase.lCutomers.remove(ID);
-		return true;
+		if (ID > 0 || ID < DataBase.lCutomers.size() )
+		{
+			DataBase.lCutomers.remove(ID);
+			return true;
+		}
+		ErrorBase error = new ErrorDelete();
+		throw error;
 	}
 	
 	public static ArrayList<CustomerInfo> getAllCustomer() throws NullPointerException
