@@ -3,18 +3,20 @@ package jp.mulodo.demoapput.test;
 import jp.mulodo.demoapput.controller.UserController;
 import jp.mulodo.demoapput.database.DataBase;
 import jp.mulodo.demoapput.error.ErrorBase;
+import jp.mulodo.demoapput.object.CustomerInfo;
 import junit.framework.TestCase;
 
-public class TestController extends TestCase {
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
-	private UserController userController;
+public class TestController extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.setUp();
 		DataBase dataBase = new DataBase();
 		dataBase.initData();
-		userController = new UserController();
 	}
 	
 	/*******************************************************************************
@@ -29,10 +31,8 @@ public class TestController extends TestCase {
 		try {
 			assertTrue(UserController.login("",""));
 		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		}	
 	}
@@ -45,10 +45,8 @@ public class TestController extends TestCase {
 		try {
 			assertTrue(UserController.login("","1231"));
 		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		}	
 	}
@@ -61,10 +59,8 @@ public class TestController extends TestCase {
 		try {
 			assertTrue(UserController.login("mr_1",""));
 		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		}	
 	}
@@ -77,10 +73,8 @@ public class TestController extends TestCase {
 		try {
 			assertTrue(UserController.login("mr_3232","1231"));
 		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		}
 	}
@@ -94,10 +88,8 @@ public class TestController extends TestCase {
 			assertTrue(UserController.login("mr_1","1231"));
 			
 		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			// TODO Auto-generated catch block
 			fail("Error: " + e.getMessage());
 		}
 				
@@ -111,8 +103,33 @@ public class TestController extends TestCase {
 	 * Begin case Add
 	 */
 	
+	/**
+	 * Test Add with Null parameter
+	 */
 	public void testAddNull()
 	{
+		try {
+			assertTrue(UserController.add(null));
+		} catch (ErrorBase e) {
+			fail("Error: " + e.getMessage());
+		}		
+	}
+	
+	/**
+	 * Test Add with Null parameter
+	 */
+	public void testAddSuccess()
+	{
+		try {
+			CustomerInfo customerInfo = new CustomerInfo();
+			customerInfo.setAddress("address");
+			customerInfo.setName("name");
+			customerInfo.setEmail("email");
+			customerInfo.setDetail("detail");
+			assertTrue(UserController.add(customerInfo));
+		} catch (ErrorBase e) {
+			fail("Error: " + e.getMessage());
+		}
 		
 	}
 	
@@ -121,4 +138,47 @@ public class TestController extends TestCase {
 	 * End case Add
 	 ***********************************************************************/
 	
+	/*******************************************************************************
+	 * Begin case Remove
+	 */
+	
+	public void testDeteleFail()
+	{
+		try {
+			assertTrue(UserController.delete(9999));
+		} catch (ErrorBase e) {
+			fail("Error: " + e.getMessage());
+		}		
+	}
+	
+	public void testDeteleSuccess()
+	{
+		try {
+			assertTrue(UserController.delete(0));
+		} catch (ErrorBase e) {
+			fail("Error: " + e.getMessage());
+		}		
+	}
+	
+	/**
+	 * End case Remove
+	 ***********************************************************************/
+	
+	/*******************************************************************************
+	 * Begin case Get
+	 */
+	public void testGetCustomerInfo()
+	{
+		assertNotNull(DataBase.lCutomers);
+	}
+	
+	public void testGetUserInfo()
+	{
+		assertNotNull(DataBase.lUsers);
+	}
+	
+	/**
+	 * End case get
+	 ***********************************************************************/
+
 }

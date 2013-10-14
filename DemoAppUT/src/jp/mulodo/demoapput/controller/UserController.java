@@ -1,10 +1,6 @@
 package jp.mulodo.demoapput.controller;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import android.R.bool;
-import android.util.Log;
 
 import jp.mulodo.demoapput.database.DataBase;
 import jp.mulodo.demoapput.error.ErrorAdd;
@@ -36,7 +32,7 @@ public class UserController {
 	}
 	public static boolean add (CustomerInfo customer) throws ErrorBase
 	{
-		if (customer == null)
+		if (customer != null)
 		{
 			DataBase.lCutomers.add(customer);
 			return true;
@@ -46,10 +42,16 @@ public class UserController {
 	}
 	
 	
-	public static boolean delete (int ID) throws ErrorDelete
+	public static boolean delete (int ID) throws ErrorBase 
 	{
-		DataBase.lCutomers.remove(ID);
-		return true;
+		
+		if ( ID < 0 || ID < DataBase.lCutomers.size())
+		{
+			DataBase.lCutomers.remove(ID);
+			return true;
+		}
+		ErrorBase error = new ErrorDelete();
+		throw error;
 	}
 	
 	public static ArrayList<CustomerInfo> getAllCustomer() throws NullPointerException
