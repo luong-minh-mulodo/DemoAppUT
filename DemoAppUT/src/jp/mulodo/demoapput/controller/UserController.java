@@ -1,5 +1,10 @@
 package jp.mulodo.demoapput.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.util.Log;
+
 import jp.mulodo.demoapput.database.DataBase;
 import jp.mulodo.demoapput.error.ErrorBase;
 import jp.mulodo.demoapput.error.ErrorLogin;
@@ -38,6 +43,20 @@ public class UserController {
 	public static void delete (int ID) throws Exception
 	{
 		DataBase.lCutomers.remove(ID);
+	}
+	public static void getAllCustomer()
+	{
+		for(CustomerInfo custom : DataBase.lCutomers)
+		{
+			Log.e("Name", custom.getName());
+		}
+	}
+	public static void getAllUser()
+	{
+		for(User usr : DataBase.lUsers)
+		{
+			Log.e("Name", usr.getUserName());
+		}
 	}
 	
 	
