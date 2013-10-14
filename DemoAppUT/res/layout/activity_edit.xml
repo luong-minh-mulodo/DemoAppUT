@@ -14,7 +14,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="EDIT USER"
+            android:text="EDIT CUSTOMER"
             android:layout_gravity="center"
             android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceLarge" />

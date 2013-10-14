@@ -51,7 +51,8 @@ public class LoginActivity extends FragmentActivity implements OnClickListener{
 		String name = ed_UserName.getText().toString();
 		String pass = ed_Password.getText().toString();
 		try {
-			UserController.login(name, pass);
+			if(UserController.login(name, pass))
+				finish();
 		} catch (ErrorBase e) {
 			tv_Error.setText(e.ErrorException().getErrorMessage());
 		}
