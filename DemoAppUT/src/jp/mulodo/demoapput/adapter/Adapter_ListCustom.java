@@ -66,12 +66,13 @@ public class Adapter_ListCustom  extends BaseAdapter<CustomerInfo>{
 	}
 
 	class ViewHolder {
-		Button btn_delete;
+		Button btn_delete,btn_edit;
 		TextView tv_mName;
 	}
 
 	public static interface OnClickListListener {
-		public abstract void onClick(CustomerInfo data);
+		public abstract void onClick_delete(CustomerInfo data);
+		public abstract void onClick_edit(CustomerInfo data);
 	}
 
 	private View getViewPuzzle(final int position, View convertView) {
@@ -84,6 +85,7 @@ public class Adapter_ListCustom  extends BaseAdapter<CustomerInfo>{
 			mHolder = new ViewHolder();
 			
 			mHolder.btn_delete = (Button) view.findViewById(R.id.listitem_btn_delete);
+			mHolder.btn_edit = (Button) view.findViewById(R.id.listitem_btn_edit);
 			mHolder.tv_mName = (TextView) view
 					.findViewById(R.id.listitem_tv_name);
 			view.setTag(mHolder);
@@ -101,7 +103,15 @@ public class Adapter_ListCustom  extends BaseAdapter<CustomerInfo>{
 					@Override
 					public void onClick(final View view) {
 						setPosition(position);
-						listener.onClick(top);
+						listener.onClick_delete(top);
+					}
+				});
+				mHolder.btn_edit.setOnClickListener(new View.OnClickListener() {
+
+					@Override
+					public void onClick(final View view) {
+						setPosition(position);
+						listener.onClick_edit(top);
 					}
 				});
 			}
