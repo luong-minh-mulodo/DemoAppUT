@@ -29,11 +29,11 @@ public class TestController extends TestCase {
 	public void testLoginNull ()
 	{
 		try {
-			assertTrue(UserController.login("",""));
+			assertFalse(UserController.login("",""));
 		} catch (NullPointerException e) {
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}	
 	}
 	
@@ -43,11 +43,11 @@ public class TestController extends TestCase {
 	public void testLoginNullUserName ()
 	{
 		try {
-			assertTrue(UserController.login("","1231"));
+			assertFalse(UserController.login("","1231"));
 		} catch (NullPointerException e) {
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}	
 	}
 	
@@ -57,11 +57,11 @@ public class TestController extends TestCase {
 	public void testLoginNullPassword ()
 	{
 		try {
-			assertTrue(UserController.login("mr_1",""));
+			assertFalse(UserController.login("mr_1",""));
 		} catch (NullPointerException e) {
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}	
 	}
 	
@@ -71,11 +71,11 @@ public class TestController extends TestCase {
 	public void testLoginFail ()
 	{
 		try {
-			assertTrue(UserController.login("mr_3232","1231"));
+			assertFalse(UserController.login("mr_3232","1231"));
 		} catch (NullPointerException e) {
 			fail("Error: " + e.getMessage());
 		} catch (ErrorBase e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}
 	}
 	
@@ -109,9 +109,9 @@ public class TestController extends TestCase {
 	public void testAddNull()
 	{
 		try {
-			assertTrue(UserController.add(null));
+			assertFalse(UserController.add(null));
 		} catch (ErrorBase e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}		
 	}
 	
@@ -146,11 +146,11 @@ public class TestController extends TestCase {
 	public void testDeteleFail()
 	{
 		try {
-			assertTrue(UserController.delete(9999));
+			assertFalse(UserController.delete(9999));
 		} catch (ErrorBase e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}catch (Exception e) {
-			fail("Error: " + e.getMessage());
+			assertTrue(true);
 		}		
 	}
 	
