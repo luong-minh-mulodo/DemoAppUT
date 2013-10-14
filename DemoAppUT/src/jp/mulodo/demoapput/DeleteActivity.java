@@ -1,14 +1,19 @@
 package jp.mulodo.demoapput;
 
+import jp.mulodo.demoapput.controller.UserController;
+import jp.mulodo.demoapput.error.ErrorBase;
+import jp.mulodo.demoapput.error.ErrorDelete;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class DeleteActivity extends FragmentActivity implements OnClickListener {
 	private Button mBtn_yes, mBtn_no;
-
+	private int mPosition;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub;
@@ -19,6 +24,10 @@ public class DeleteActivity extends FragmentActivity implements OnClickListener 
 
 		mBtn_no.setOnClickListener(this);
 		mBtn_yes.setOnClickListener(this);
+		
+		Bundle data = getIntent().getExtras();
+		mPosition = data.getInt("position");
+		Log.e("Postion", ""+mPosition);
 	}
 
 	@Override
@@ -26,10 +35,17 @@ public class DeleteActivity extends FragmentActivity implements OnClickListener 
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.delete_btn_yes:
-			finish();
+			try {
+				UserController.delete(mPosition);
+				finish();
+			}  catch (ErrorBase e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			break;
 		case R.id.delete_btn_no:
-
+			finish();
 			break;
 
 		default:
