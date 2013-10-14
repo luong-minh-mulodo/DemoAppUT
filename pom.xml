@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <version>1.0</version>
-    <groupId>jp.mulodo.demoapput.notepad</groupId>
+    <groupId>jp.mulodo.demoapput</groupId>
     <artifactId>jp-mulodo-demoapput-parent</artifactId>
     <name>demoapput parent</name>
     <packaging>pom</packaging>
