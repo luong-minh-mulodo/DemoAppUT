@@ -28,6 +28,8 @@ public class DataBase {
 				CustomerInfo customer = new CustomerInfo();
 				customer.setName("Nguyen Van " + i);
 				customer.setAddress((i * 2 + 1) + " vo van tan");
+				customer.setEmail("abc"+i+"@a.com");
+				customer.setDetail("friend");
 				lCutomers.add(customer);
 			}
 		}

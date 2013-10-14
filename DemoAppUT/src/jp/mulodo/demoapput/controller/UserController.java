@@ -26,6 +26,19 @@ public class UserController {
 		ErrorBase error = new ErrorLogin();
 		throw error;
 	}
+	public static void add (String Name,String Address,String Email,String Detail) throws Exception
+	{
+		CustomerInfo customer = new CustomerInfo();
+		customer.setAddress(Address);
+		customer.setDetail(Detail);
+		customer.setEmail(Email);
+		customer.setName(Name);
+		DataBase.lCutomers.add(customer);
+	}
+	public static void delete (int ID) throws Exception
+	{
+		DataBase.lCutomers.remove(ID);
+	}
 	
 	
 	
