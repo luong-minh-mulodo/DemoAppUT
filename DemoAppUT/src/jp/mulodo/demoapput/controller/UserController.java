@@ -36,7 +36,7 @@ public class UserController {
 	}
 	public static boolean add (CustomerInfo customer) throws ErrorBase
 	{
-		if (customer == null)
+		if (customer != null)
 		{
 			DataBase.lCutomers.add(customer);
 			return true;
