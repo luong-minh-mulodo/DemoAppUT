@@ -22,4 +22,12 @@
         android:text="Kop GA"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/listitem_btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/listitem_btn_delete"
+        android:text="Edit" />
+
 </RelativeLayout>

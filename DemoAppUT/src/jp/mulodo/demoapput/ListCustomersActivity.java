@@ -30,13 +30,22 @@ public class ListCustomersActivity extends FragmentActivity {
 		mAdapter = new Adapter_ListCustom(this,
 				R.layout.activity_listcustommer_listitem, mCustom,
 				new OnClickListListener() {
-
 					@Override
-					public void onClick(CustomerInfo data) {
+					public void onClick_delete(CustomerInfo data) {
 						// TODO Auto-generated method stub
 						Log.e("POSTION", "" + mAdapter.getPosition());
 						Intent i = new Intent(getApplicationContext(),
 								DeleteActivity.class);
+						i.putExtra("position", mAdapter.getPosition());
+						startActivity(i);
+					}
+
+					@Override
+					public void onClick_edit(CustomerInfo data) {
+						// TODO Auto-generated method stub
+						Log.e("POSTION", "" + mAdapter.getPosition());
+						Intent i = new Intent(getApplicationContext(),
+								ModifyActivity.class);
 						i.putExtra("position", mAdapter.getPosition());
 						startActivity(i);
 					}
