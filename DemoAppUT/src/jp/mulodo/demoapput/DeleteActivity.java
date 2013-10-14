@@ -1,7 +1,9 @@
 package jp.mulodo.demoapput;
 
 import jp.mulodo.demoapput.controller.UserController;
+
 import jp.mulodo.demoapput.error.ErrorBase;
+
 import jp.mulodo.demoapput.error.ErrorDelete;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,9 +40,9 @@ public class DeleteActivity extends FragmentActivity implements OnClickListener 
 			try {
 				UserController.delete(mPosition);
 				finish();
+
 			}  catch (ErrorBase e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
 			}
 			
 			break;
