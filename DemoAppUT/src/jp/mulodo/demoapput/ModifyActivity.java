@@ -1,9 +1,6 @@
 package jp.mulodo.demoapput;
 
 import jp.mulodo.demoapput.database.DataBase;
-import jp.mulodo.demoapput.controller.UserController;
-import jp.mulodo.demoapput.database.DataBase;
-import jp.mulodo.demoapput.object.CustomerInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
