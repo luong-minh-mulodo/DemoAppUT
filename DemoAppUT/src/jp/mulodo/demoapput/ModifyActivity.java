@@ -8,7 +8,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-
+/**
+ * 
+ * @author nguyenvantu
+ *
+ */
 public class ModifyActivity extends FragmentActivity implements OnClickListener {
 	private Button mBt_save;
 	private EditText mEdt_name, mEdt_address, mEdt_email, mEdt_detail;
@@ -38,7 +42,11 @@ public class ModifyActivity extends FragmentActivity implements OnClickListener 
 			finish();
 		}
 	}
-
+	/**
+	 * get data from ListCustomerActivity and set text for edittext
+	 * @method public
+	 * @return void
+	 */
 	public void initData() {
 		Bundle data = getIntent().getExtras();
 		mPosition = data.getInt("position");
@@ -49,7 +57,11 @@ public class ModifyActivity extends FragmentActivity implements OnClickListener 
 		mEdt_email.setText(DataBase.lCutomers.get(mPosition).getEmail());
 		mEdt_address.setText(DataBase.lCutomers.get(mPosition).getAddress());
 	}
-
+	/**
+	 * get data from view and set data for customer edit.
+	 * @method public
+	 * @return void
+	 */
 	public void getData() {
 		String name = mEdt_name.getText().toString();
 		String address = mEdt_address.getText().toString();

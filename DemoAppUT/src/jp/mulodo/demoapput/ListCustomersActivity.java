@@ -11,7 +11,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.ListView;
-
+/**
+ * 
+ * @author nguyenvantu
+ *
+ */
 public class ListCustomersActivity extends FragmentActivity {
 	private ListView mLv_user;
 	private Adapter_ListCustom mAdapter;
@@ -24,7 +28,11 @@ public class ListCustomersActivity extends FragmentActivity {
 		setContentView(R.layout.activity_listcustomer);
 		mLv_user = (ListView) findViewById(R.id.listcustom_lv_user);
 	}
-
+	/**
+	 * set data for list and set event for two button delete and edit
+	 * @method public
+	 * @return void
+	 */
 	public void adapter() {
 		mCustom = DataBase.lCutomers;
 		mAdapter = new Adapter_ListCustom(this,

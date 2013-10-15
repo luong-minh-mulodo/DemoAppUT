@@ -10,6 +10,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * 
+ * @author nguyenvantu
+ *
+ */
 public class DeleteActivity extends FragmentActivity implements OnClickListener {
 	private Button mBtn_yes, mBtn_no;
 	private int mPosition;

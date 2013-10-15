@@ -9,7 +9,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-
+/**
+ * 
+ * @author nguyenvantu
+ *
+ */
 public class AddActivity extends FragmentActivity implements OnClickListener{
 	private Button mBt_add;
 	private EditText mEdt_name,mEdt_address,mEdt_email,mEdt_detail;
@@ -37,6 +41,12 @@ public class AddActivity extends FragmentActivity implements OnClickListener{
 			
 		}
 	}
+	/**
+	 * get data from view
+	 * and save in array list
+	 * @method public
+	 * @return void
+	 */
 	public void getData()
 	{
 		String name = mEdt_name.getText().toString();
