@@ -43,14 +43,14 @@ public class TestActivityDelete extends
 		super.tearDown();
 	}
 	
-//	public void testDeleteData()
-//	{
-//		Log.e("DATA",data);
-//		solo.clickOnButton("Yes");
-////		Log.e("DATA 1", DataBase.lCutomers.get(1).getName());
-//		DataBase mockDB = Mockito.mock(DataBase.class);
-//		Assert.assertEquals(data, mockDB.lCutomers.get(1).getName());
-//	}
+	public void testDeleteData()
+	{
+		Log.e("DATA",data);
+		solo.clickOnButton("Yes");
+//		Log.e("DATA 1", DataBase.lCutomers.get(1).getName());
+		DataBase mockDB = Mockito.mock(DataBase.class);
+		Assert.assertNotSame(data, mockDB.lCutomers.get(1).getName());
+	}
 	public void testCancelData()
 	{
 //		Log.e("DATA",data);
