@@ -48,6 +48,9 @@ public class LoginActivity extends FragmentActivity implements OnClickListener{
 	}
 	
 
+	/**
+	 * Login
+	 */
 	public void login()
 	{
 		String name = ed_UserName.getText().toString();

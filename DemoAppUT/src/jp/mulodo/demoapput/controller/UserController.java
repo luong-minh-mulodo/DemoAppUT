@@ -1,5 +1,6 @@
 package jp.mulodo.demoapput.controller;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 
 import jp.mulodo.demoapput.database.DataBase;
@@ -16,6 +17,7 @@ public class UserController {
 	 * Login in system
 	 * @throws ErrorBase 
 	 * @throws ErrorLogin if error
+	 * @parameter username and pass
 	 */
 	public static boolean login(String UserName,String Password ) throws ErrorBase,NullPointerException
 	{
@@ -30,6 +32,12 @@ public class UserController {
 		ErrorBase error = new ErrorLogin();
 		throw error;
 	}
+	
+	/**
+	 * Add customer to array list
+	 * @throws ErrorBase 
+	 * @parameter customer
+	 */
 	public static boolean add (CustomerInfo customer) throws ErrorBase
 	{
 		if (customer != null)
@@ -41,7 +49,11 @@ public class UserController {
 		throw error;
 	}
 	
-	
+	/**
+	 * Delete 1 object cusromer to array list
+	 * @throws ErrorBase 
+	 * @parameter id is index of array
+	 */
 	public static boolean delete (int ID) throws ErrorBase,IndexOutOfBoundsException
 	{
 		if (ID > 0 || ID < DataBase.lCutomers.size() )
@@ -53,11 +65,17 @@ public class UserController {
 		throw error;
 	}
 	
+	/**
+	 * Get List Customer
+	 */
 	public static ArrayList<CustomerInfo> getAllCustomer() throws NullPointerException
 	{
 		return DataBase.lCutomers;
 	}
 	
+	/**
+	 * Get List User
+	 */
 	public static ArrayList<User> getAllUser() throws NullPointerException
 	{
 		return DataBase.lUsers;
